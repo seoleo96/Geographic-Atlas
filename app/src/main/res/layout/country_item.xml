@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_country_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_12">
+
+        <com.example.geographicatlas.ui.base.RoundedImageView
+            android:id="@+id/country_icon"
+            android:layout_width="@dimen/dp_82"
+            android:layout_height="@dimen/dp_48"
+            android:src="@drawable/kz"
+            app:cornerRadius="@dimen/dp_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/country_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:fontFamily="@font/roboto_medium"
+            android:maxWidth="180dp"
+            android:maxLines="3"
+            android:text="United States Minor Outlying Idslands "
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_17"
+            app:layout_constraintStart_toEndOf="@+id/country_icon"
+            app:layout_constraintTop_toTopOf="@+id/country_icon" />
+
+        <TextView
+            android:id="@+id/country_capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Astana"
+            android:textColor="@color/capital_color"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintStart_toStartOf="@+id/country_name"
+            app:layout_constraintTop_toBottomOf="@+id/country_name" />
+
+        <ImageView
+            android:id="@+id/expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_5_25"
+            android:src="@drawable/ic_down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/country_info_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_12">
+
+        <TextView
+            android:id="@+id/population_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/population"
+            android:textColor="@color/capital_color"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/population_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:fontFamily="@font/roboto_regular"
+            android:text="19 mln"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@+id/population_text"
+            app:layout_constraintStart_toEndOf="@+id/population_text"
+            app:layout_constraintTop_toTopOf="@+id/population_text" />
+
+        <TextView
+            android:id="@+id/area_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/area"
+            android:textColor="@color/capital_color"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/population_text" />
+
+        <TextView
+            android:id="@+id/area_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:fontFamily="@font/roboto_regular"
+            android:text="2.725 mln km²"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@+id/area_text"
+            app:layout_constraintStart_toEndOf="@+id/area_text"
+            app:layout_constraintTop_toTopOf="@+id/area_text" />
+
+        <TextView
+            android:id="@+id/currencies_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/currencies"
+            android:textColor="@color/capital_color"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_text" />
+
+        <TextView
+            android:id="@+id/currencies_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:fontFamily="@font/roboto_regular"
+            android:maxWidth="220dp"
+            android:maxLines="3"
+            android:text="Tenge (₸) (KZT)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/currencies_text"
+            app:layout_constraintTop_toTopOf="@+id/currencies_text" />
+
+        <TextView
+            android:id="@+id/learn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_22"
+            android:fontFamily="@font/roboto_medium"
+            android:letterSpacing="0.1"
+            android:text="@string/learn_more"
+            android:textColor="@color/learn_more_color"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currencies_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
