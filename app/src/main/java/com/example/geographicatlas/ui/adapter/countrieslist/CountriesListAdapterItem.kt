@@ -13,6 +13,7 @@ data class CountriesListAdapterItem(
     val isExpand : Boolean,
     val currency : String,
     val continent : String,
+    val cca2 : String,
 ) : DelegateItem {
 
     override fun content(): Any = this

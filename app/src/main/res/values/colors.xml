@@ -11,4 +11,6 @@
     <color name="capital_color">#888888</color>
     <color name="bg_country_content_color">#F7F8F9</color>
     <color name="learn_more_color">#6200EE</color>
+    <color name="continent_color">#ABB3BB</color>
+    <color name="inactive_color">#919191</color>
 </resources>

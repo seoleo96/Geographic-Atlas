@@ -15,5 +15,6 @@ data class CountryEntity(
     val flag: String,
     val isExpand : Boolean,
     val currency:String,
-    val continent : String
+    val continent : String,
+    val cca2 : String,
 )

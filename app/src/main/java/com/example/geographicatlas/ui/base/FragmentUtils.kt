@@ -1,7 +1,9 @@
 package com.example.geographicatlas.ui.base
 
 
+import android.content.Context
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.geographicatlas.ui.adapter.DelegateItem
 import com.example.geographicatlas.ui.adapter.continent.ContinentAdapterItem
@@ -36,5 +38,8 @@ object FragmentUtils {
         return delegateItemList
     }
 
+    fun showToast(msg: String, context: Context) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    }
 
 }

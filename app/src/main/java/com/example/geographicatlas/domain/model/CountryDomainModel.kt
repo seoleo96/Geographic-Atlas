@@ -11,4 +11,7 @@ data class CountryDomainModel(
     val isExpand : Boolean,
     val currency : String,
     val continent : String,
+    val cca2 : String,
+    val latLng : String? = null,
+    val timezones : String? = null,
 )

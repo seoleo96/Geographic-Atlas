@@ -6,5 +6,12 @@
     <string name="population">Population:</string>
     <string name="area">Area:</string>
     <string name="currencies">Currencies:</string>
+    <string name="mln">mln</string>
     <string name="learn_more">LEARN MORE</string>
+    <string name="smth_went_wrong_error">Something went wrong!</string>
+    <string name="no_internet_connection">No internet connection!</string>
+    <string name="capital">Capital:</string>
+    <string name="capital_coordinates">Capital coordinates:</string>
+    <string name="region">Region:</string>
+    <string name="timezones">Timezones:</string>
 </resources>

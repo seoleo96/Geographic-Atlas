@@ -1,8 +1,8 @@
 package com.example.geographicatlas.ui.screens.countrieslist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,49 +14,92 @@ import com.example.geographicatlas.ui.adapter.BaseAdapter
 import com.example.geographicatlas.ui.adapter.continent.ContinentAdapter
 import com.example.geographicatlas.ui.adapter.countrieslist.CountriesAdapter
 import com.example.geographicatlas.ui.adapter.countrieslist.CountriesListAdapterItem
+import com.example.geographicatlas.ui.adapter.countrieslist.CountyDividerItemDecoration
+import com.example.geographicatlas.ui.base.FragmentUtils.showToast
 import com.seoleo.zulipmessenger.ui.base.viewBinding
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.net.UnknownHostException
 
 class CountriesListFragment : Fragment(R.layout.fragment_countries_list) {
 
     private val binding by viewBinding(FragmentCountriesListBinding::bind)
     private val adapter by lazy(LazyThreadSafetyMode.NONE) { BaseAdapter() }
-
-    //    private lateinit var adapter: FilmsAdapter
-    private val viewModel: CountriesListViewModel by inject()
+    private val viewModel: CountriesListViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.fetchCountries()
-
         setUpToolbar()
-        binding.root.setOnClickListener {
-            findNavController().navigate(R.id.action_countriesListFragment_to_countryDetailsFragment)
-        }
+        setUpAdapter()
+        observeViewState()
+    }
 
+    private fun observeViewState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.countries.collect {
-                    Log.e(TAG, "onViewCreated: ${it.size}")
-                    adapter.submitList(it)
-                }
+                launch { observeCountries() }
+                launch { observeLoadingState() }
+                launch { observeErrorState() }
             }
         }
+    }
 
-        setUpAdapter()
+    private suspend fun observeErrorState() {
+        viewModel.errorState().collect { throwable ->
+            throwable?.let { error ->
+                val message = when (error) {
+                    is UnknownHostException -> {
+                        getString(R.string.no_internet_connection)
+                    }
+                    else -> {
+                        getString(R.string.smth_went_wrong_error)
+                    }
+                }
+                showToast(message, requireContext())
+                viewModel.resetErrorState()
+            }
+        }
+    }
+
+    private suspend fun observeCountries() {
+        viewModel.countries().collect { countries ->
+            adapter.submitList(countries)
+        }
+    }
+
+    private suspend fun observeLoadingState() {
+        viewModel.loadingState().collect { isLoading ->
+            if (isLoading) {
+                binding.recycler.isVisible = false
+                binding.shimmerView.apply {
+                    shimmerViewContainer.startShimmer()
+                    root.isVisible = true
+                }
+            } else {
+                binding.shimmerView.apply {
+                    shimmerViewContainer.stopShimmer()
+                    root.isVisible = false
+                }
+                binding.recycler.isVisible = true
+            }
+        }
     }
 
     private fun setUpAdapter() {
-        adapter.addDelegate(CountriesAdapter(::onClickItem))
+        adapter.addDelegate(CountriesAdapter(::onClickExpandIcon, ::onClickLearnMore))
         adapter.addDelegate(ContinentAdapter())
         binding.recycler.addItemDecoration(CountyDividerItemDecoration())
         binding.recycler.adapter = adapter
     }
 
-    private fun onClickItem(item: CountriesListAdapterItem) {
+    private fun onClickExpandIcon(item: CountriesListAdapterItem) {
+        viewModel.updateCountry(item.copy(isExpand = !item.isExpand))
+    }
 
+    private fun onClickLearnMore(item: CountriesListAdapterItem) {
+        val action = CountriesListFragmentDirections.actionCountriesListFragmentToCountryDetailsFragment(item.cca2)
+        findNavController().navigate(action)
     }
 
     private fun setUpToolbar() {
@@ -64,6 +107,6 @@ class CountriesListFragment : Fragment(R.layout.fragment_countries_list) {
     }
 
     companion object {
-        private const val TAG = "CountriesListFragment"
+        private const val TAG = "CountriesActions"
     }
 }

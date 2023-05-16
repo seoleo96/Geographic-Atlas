@@ -16,14 +16,14 @@ import com.example.geographicatlas.data.parser.ParseCountyItems
 import com.example.geographicatlas.data.parser.ParseCountyItemsImpl
 import com.example.geographicatlas.data.repository.AtlasRepositoryImpl
 import com.example.geographicatlas.domain.repository.AtlasRepository
-import com.example.geographicatlas.domain.usecase.FetchCountriesUseCase
-import com.example.geographicatlas.domain.usecase.FetchCountriesUseCaseImpl
-import com.example.geographicatlas.domain.usecase.GetCountriesFlowUseCase
-import com.example.geographicatlas.domain.usecase.GetCountriesFlowUseCaseImpl
+import com.example.geographicatlas.domain.usecase.*
 import com.example.geographicatlas.ui.mapper.CountriesUiMapper
 import com.example.geographicatlas.ui.mapper.CountriesUiMapperImpl
 import com.example.geographicatlas.ui.screens.countrieslist.CountriesListViewModel
+import com.example.geographicatlas.ui.screens.countrydetails.CountryDetailsViewModel
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -38,18 +38,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoinMain()
-//        MainScope().launch(Dispatchers.IO) {
-//            try {
-//                RetrofitInstance().service().fetchCountries().let {
-//                    val data = Gson().toJson(it.body())
-//                    val custom = "{\"countries\":$data}"
-//                    val countryObj = Gson().fromJson(custom, AllCountriesResponse::class.java)
-//                    Log.e("TAG", "onCreate: ${countryObj.countries}")
-//                }
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//        }
     }
 
     private val appModule = module {
@@ -69,13 +57,12 @@ class App : Application() {
         singleOf(::AtlasRepositoryImpl) bind AtlasRepository::class
         singleOf(::FetchCountriesUseCaseImpl) bind FetchCountriesUseCase::class
         singleOf(::GetCountriesFlowUseCaseImpl) bind GetCountriesFlowUseCase::class
+        singleOf(::UpdateCountryUseCaseImpl) bind UpdateCountryUseCase::class
+        singleOf(::FetchCountryDetailsUseCaseImpl) bind FetchCountryDetailsUseCase::class
+        single<CoroutineDispatcher> { Dispatchers.IO }
         singleOf(::CountriesUiMapperImpl) bind CountriesUiMapper::class
         viewModelOf(::CountriesListViewModel)
-
-//        single { FilmsDatabase.getDatabase(androidContext()).filmDao() }
-//        viewModelOf(::MainViewModel)
-//        viewModelOf(::FavouritesViewModel)
-//        viewModelOf(::FilmInfoViewModel)
+        viewModelOf(::CountryDetailsViewModel)
     }
 
     private fun startKoinMain() {

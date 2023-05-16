@@ -8,24 +8,25 @@ import com.example.geographicatlas.ui.adapter.AdapterDelegate
 import com.example.geographicatlas.ui.adapter.DelegateItem
 
 class ContinentAdapter : AdapterDelegate {
-    override fun onCreateViewHolder(parent: ViewGroup) = PeopleViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup) = ContinentViewHolder(
         ItemContinentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(viewHolder: ViewHolder, item: DelegateItem, position: Int) {
-        (viewHolder as PeopleViewHolder).bind(item.content() as ContinentAdapterItem)
+        (viewHolder as ContinentViewHolder).bind(item.content() as ContinentAdapterItem)
     }
 
     override fun isOfViewType(item: DelegateItem) = item is ContinentAdapterItem
 
     override fun onBindViewHolder(holder: ViewHolder, item: DelegateItem, payloads: List<Any>) {}
 
-    inner class PeopleViewHolder(
+    inner class ContinentViewHolder(
         private val binding: ItemContinentBinding,
     ) : ViewHolder(binding.root) {
 
         fun bind(item: ContinentAdapterItem) {
             binding.continent.text = item.continent
+            binding.root.tag = "continent"
         }
     }
 }

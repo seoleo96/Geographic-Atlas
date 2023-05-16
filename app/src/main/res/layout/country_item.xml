@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_country_content"
     android:orientation="vertical">
 
@@ -28,8 +29,9 @@
             android:layout_marginStart="@dimen/dp_12"
             android:fontFamily="@font/roboto_medium"
             android:maxWidth="180dp"
+            android:layout_marginTop="@dimen/dp_4"
             android:maxLines="3"
-            android:text="United States Minor Outlying Idslands "
+            tools:text="United"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_17"
             app:layout_constraintStart_toEndOf="@+id/country_icon"
@@ -48,8 +50,9 @@
 
         <ImageView
             android:id="@+id/expand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_5_25"
             android:src="@drawable/ic_down"
             app:layout_constraintBottom_toBottomOf="parent"

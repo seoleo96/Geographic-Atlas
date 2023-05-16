@@ -16,6 +16,9 @@ data class CountryInfoResponse(
     @SerializedName("flags") val flags: FlagsResponse,
     @SerializedName("currencies") val currencies: Any?,
     @SerializedName("continents") val continents: List<String>? = null,
+    @SerializedName("cca2") val cca2: String? = null,
+    @SerializedName("capitalInfo") val capitalInfo: CapitalInfoResponse? = null,
+    @SerializedName("timezones") val timezones: List<String>? = null,
 )
 
 data class CountryNameResponse(
@@ -24,4 +27,8 @@ data class CountryNameResponse(
 
 data class FlagsResponse(
     @SerializedName("png") val flag: String,
+)
+
+data class CapitalInfoResponse(
+    @SerializedName("latlng") val latLng: List<Double>? = null,
 )

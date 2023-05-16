@@ -1,4 +1,4 @@
-package com.example.geographicatlas.ui.screens.countrieslist
+package com.example.geographicatlas.ui.adapter.countrieslist
 
 import android.graphics.Rect
 import android.view.View
@@ -15,7 +15,7 @@ class CountyDividerItemDecoration : RecyclerView.ItemDecoration() {
         super.getItemOffsets(outRect, view, parent, state)
 
         with(outRect) {
-            if (parent.getChildAdapterPosition(view) == 0) {
+            if (parent.getChildAdapterPosition(view) == 0 || view.tag == "continent") {
                 top = topOffset
             }
             bottom = bottomOffset
@@ -25,7 +25,7 @@ class CountyDividerItemDecoration : RecyclerView.ItemDecoration() {
     }
 
     companion object {
-        private const val topOffset = 32
+        private const val topOffset = 36
         private const val bottomOffset = 16
         private const val leftOffset = 24
     }
