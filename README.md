@@ -1,7 +1,7 @@
 # Geographic-Atlas
 
 ## Demo video of app "Geographical Atlas"
-screens/atlas_app.gif
+[screens/atlas_app.gif](https://github.com/seoleo96/Geographic-Atlas/blob/master/screens/atlas_app.gif)
 
 ## Architecture
 
