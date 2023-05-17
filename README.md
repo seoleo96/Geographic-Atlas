@@ -3,6 +3,9 @@
 ## Demo video of app "Geographical Atlas"
 ![screens/atlas_app.gif](https://github.com/seoleo96/Geographic-Atlas/blob/master/screens/atlas_app.gif)
 
+## Demo video of app "Geographical Atlas" (advanced features)
+![screens/advanced_features.gif](https://github.com/seoleo96/Geographic-Atlas/blob/master/screens/advanced_features.gif)
+
 ## Architecture
 
 The architecture of the application is based, apply and strictly complies with each of the following 5 points:
