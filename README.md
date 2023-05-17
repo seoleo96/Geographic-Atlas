@@ -1,5 +1,8 @@
 # Geographic-Atlas
 
+## Demo video of app "Geographical Atlas"
+screens/atlas_app.gif
+
 ## Architecture
 
 The architecture of the application is based, apply and strictly complies with each of the following 5 points:
