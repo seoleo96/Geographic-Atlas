@@ -16,7 +16,7 @@ import com.example.geographicatlas.ui.adapter.countrieslist.CountriesAdapter
 import com.example.geographicatlas.ui.adapter.countrieslist.CountriesListAdapterItem
 import com.example.geographicatlas.ui.adapter.countrieslist.CountyDividerItemDecoration
 import com.example.geographicatlas.ui.base.FragmentUtils.showToast
-import com.seoleo.zulipmessenger.ui.base.viewBinding
+import com.example.geographicatlas.ui.base.viewBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.net.UnknownHostException
@@ -104,9 +104,5 @@ class CountriesListFragment : Fragment(R.layout.fragment_countries_list) {
 
     private fun setUpToolbar() {
         binding.toolbar.screenName.text = getString(R.string.countries_list_screen_name)
-    }
-
-    companion object {
-        private const val TAG = "CountriesActions"
     }
 }

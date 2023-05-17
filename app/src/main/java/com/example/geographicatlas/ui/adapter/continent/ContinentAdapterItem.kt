@@ -3,7 +3,7 @@ package com.example.geographicatlas.ui.adapter.continent
 import com.example.geographicatlas.ui.adapter.DelegateItem
 
 data class ContinentAdapterItem(
-    val id : Int,
+    val id: Int,
     val continent: String,
 ) : DelegateItem {
 

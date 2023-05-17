@@ -30,7 +30,6 @@ class CountriesListViewModel(
     private var isFetchedCountries = false
 
     init {
-        Log.e(TAG, "INIT: ")
         launchOperations()
     }
 
@@ -50,6 +49,9 @@ class CountriesListViewModel(
     private suspend fun observeCountries() {
         getCountriesFlowUseCase().collect {
             countries.value = mapper.mapCountriesToUi(it).toWithContinents()
+            if (isFetchedCountries) {
+                loadingState.value = false
+            }
         }
     }
 
@@ -57,10 +59,9 @@ class CountriesListViewModel(
         if (!isFetchedCountries) {
             loadingState.value = true
             val result = fetchCountriesUseCase()
-            if(result is CountriesResultDomain.Fail){
+            if (result is CountriesResultDomain.Fail) {
                 errorState.value = result.error
             }
-            loadingState.value = false
             isFetchedCountries = true
         }
     }
@@ -71,12 +72,7 @@ class CountriesListViewModel(
         }
     }
 
-    fun resetErrorState(){
+    fun resetErrorState() {
         errorState.value = null
     }
-
-    companion object {
-        private const val TAG = "CountriesActions"
-    }
-
 }

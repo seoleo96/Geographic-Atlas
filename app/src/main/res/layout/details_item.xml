@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/country_image">
+    app:layout_constraintTop_toBottomOf="@+id/country_image_loading">
 
     <ImageView
         android:id="@+id/image_dot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
-        android:src="@drawable/ic_dot"
         android:layout_marginTop="@dimen/dp_4"
+        android:src="@drawable/ic_dot"
         app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_regular"
-        android:maxWidth="280dp"
+        android:maxWidth="@dimen/dp_280"
         android:maxLines="3"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_20"

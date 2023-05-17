@@ -1,6 +1,5 @@
 package com.example.geographicatlas.data.cloud
 
-import com.example.geographicatlas.data.cloud.model.AllCountriesResponse
 import retrofit2.Response
 import retrofit2.http.*
 

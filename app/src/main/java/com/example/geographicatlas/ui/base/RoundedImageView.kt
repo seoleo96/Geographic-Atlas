@@ -12,7 +12,7 @@ import com.example.geographicatlas.R
 class RoundedImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttrs: Int = 0
+    defStyleAttrs: Int = 0,
 ) : AppCompatImageView(context, attrs, defStyleAttrs) {
 
     private val path = Path()

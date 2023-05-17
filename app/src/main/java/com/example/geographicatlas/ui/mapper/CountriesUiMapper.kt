@@ -21,9 +21,9 @@ class CountriesUiMapperImpl : CountriesUiMapper {
                 area = country.area,
                 flag = country.flag,
                 isExpand = country.isExpand,
-                currency =  country.currency,
-                continent =  country.continent,
-                cca2 =  country.cca2,
+                currency = country.currency,
+                continent = country.continent,
+                cca2 = country.cca2,
             )
         }
     }
@@ -38,9 +38,9 @@ class CountriesUiMapperImpl : CountriesUiMapper {
             area = country.area,
             flag = country.flag,
             isExpand = country.isExpand,
-            currency =  country.currency,
-            continent =  country.continent,
-            cca2 =  country.cca2,
+            currency = country.currency,
+            continent = country.continent,
+            cca2 = country.cca2,
         )
     }
 }

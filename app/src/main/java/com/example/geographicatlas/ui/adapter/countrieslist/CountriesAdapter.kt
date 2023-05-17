@@ -1,6 +1,5 @@
 package com.example.geographicatlas.ui.adapter.countrieslist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -41,7 +40,8 @@ class CountriesAdapter(
                 countryCapital.text = item.capital
                 val populationText = "${item.population} ${this.populationValue.context.resources.getString(R.string.mln)}"
                 populationValue.text = populationText
-                areaValue.text = item.area.toString()
+                val areaText = "${item.area} ${this.populationValue.context.resources.getString(R.string.km)}"
+                areaValue.text = areaText
                 currenciesValue.text = item.currency
                 binding.countryInfoWrapper.isVisible = item.isExpand
                 setArrowDrawable(item.isExpand)

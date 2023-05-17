@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     app:shimmer_duration="1200">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.screens.countrydetails.CountryDetailsFragment">
@@ -30,9 +29,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
                 <com.example.geographicatlas.ui.base.RoundedImageView
-                    android:id="@+id/country_image"
+                    android:id="@+id/country_image_loading"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/dp_200"
                     android:layout_margin="@dimen/dp_16"
                     android:background="@color/inactive_color"
                     app:cornerRadius="@dimen/dp_8"
@@ -41,74 +40,74 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <include
-                    android:id="@+id/capital_wrapper"
+                    android:id="@+id/capital_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
-                    app:layout_constraintEnd_toEndOf="@+id/country_image"
-                    app:layout_constraintStart_toStartOf="@+id/country_image"
-                    app:layout_constraintTop_toBottomOf="@+id/country_image" />
+                    app:layout_constraintEnd_toEndOf="@+id/country_image_loading"
+                    app:layout_constraintStart_toStartOf="@+id/country_image_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/country_image_loading" />
 
                 <include
-                    android:id="@+id/capital_coordinates_wrapper"
+                    android:id="@+id/capital_coordinates_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/capital_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/capital_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/capital_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/capital_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/capital_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/capital_wrapper_loading" />
 
                 <include
-                    android:id="@+id/population_wrapper"
+                    android:id="@+id/population_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/capital_coordinates_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/capital_coordinates_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/capital_coordinates_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/capital_coordinates_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/capital_coordinates_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/capital_coordinates_wrapper_loading" />
 
                 <include
-                    android:id="@+id/area_wrapper"
+                    android:id="@+id/area_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/population_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/population_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/population_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/population_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/population_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/population_wrapper_loading" />
 
                 <include
-                    android:id="@+id/currency_wrapper"
+                    android:id="@+id/currency_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/area_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/area_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/area_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/area_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/area_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/area_wrapper_loading" />
 
                 <include
-                    android:id="@+id/region_wrapper"
+                    android:id="@+id/region_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/currency_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/currency_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/currency_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/currency_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/currency_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/currency_wrapper_loading" />
 
                 <include
-                    android:id="@+id/timezones_wrapper"
+                    android:id="@+id/timezones_wrapper_loading"
                     layout="@layout/details_item_shimmer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_24"
-                    app:layout_constraintEnd_toEndOf="@+id/region_wrapper"
-                    app:layout_constraintStart_toStartOf="@+id/region_wrapper"
-                    app:layout_constraintTop_toBottomOf="@+id/region_wrapper" />
+                    app:layout_constraintEnd_toEndOf="@+id/region_wrapper_loading"
+                    app:layout_constraintStart_toStartOf="@+id/region_wrapper_loading"
+                    app:layout_constraintTop_toBottomOf="@+id/region_wrapper_loading" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

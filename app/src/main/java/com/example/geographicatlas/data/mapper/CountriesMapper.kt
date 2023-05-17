@@ -14,7 +14,7 @@ interface CountriesMapper {
 }
 
 class CountriesMapperImpl(
-    private val parser: ParseCountyItems
+    private val parser: ParseCountyItems,
 ) : CountriesMapper {
 
     override fun mapResponseToCache(countries: List<CountryInfoResponse>): List<CountryEntity> {

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Geographic Atlas</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="countries_list_screen_name">World countries</string>
     <string name="population">Population:</string>
@@ -9,9 +8,11 @@
     <string name="mln">mln</string>
     <string name="learn_more">LEARN MORE</string>
     <string name="smth_went_wrong_error">Something went wrong!</string>
+    <string name="app_is_not_found">Google Maps app is not found!</string>
     <string name="no_internet_connection">No internet connection!</string>
     <string name="capital">Capital:</string>
     <string name="capital_coordinates">Capital coordinates:</string>
     <string name="region">Region:</string>
     <string name="timezones">Timezones:</string>
+    <string name="km">km²</string>
 </resources>

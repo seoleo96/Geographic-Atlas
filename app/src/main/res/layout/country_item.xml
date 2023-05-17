@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_country_content"
     android:orientation="vertical">
 
@@ -27,22 +27,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_12"
-            android:fontFamily="@font/roboto_medium"
-            android:maxWidth="180dp"
             android:layout_marginTop="@dimen/dp_4"
+            android:fontFamily="@font/roboto_medium"
+            android:maxWidth="@dimen/dp_180"
             android:maxLines="3"
-            tools:text="United"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_17"
             app:layout_constraintStart_toEndOf="@+id/country_icon"
-            app:layout_constraintTop_toTopOf="@+id/country_icon" />
+            app:layout_constraintTop_toTopOf="@+id/country_icon"
+            tools:text="United" />
 
         <TextView
             android:id="@+id/country_capital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Astana"
             android:textColor="@color/capital_color"
             android:textSize="@dimen/sp_14"
             app:layout_constraintStart_toStartOf="@+id/country_name"
@@ -50,10 +49,10 @@
 
         <ImageView
             android:id="@+id/expand"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:padding="@dimen/dp_4"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
             android:layout_marginEnd="@dimen/dp_5_25"
+            android:padding="@dimen/dp_4"
             android:src="@drawable/ic_down"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +84,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_4"
             android:fontFamily="@font/roboto_regular"
-            android:text="19 mln"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_15"
             app:layout_constraintBottom_toBottomOf="@+id/population_text"
@@ -110,7 +108,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_4"
             android:fontFamily="@font/roboto_regular"
-            android:text="2.725 mln km²"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_15"
             app:layout_constraintBottom_toBottomOf="@+id/area_text"
@@ -135,9 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_4"
             android:fontFamily="@font/roboto_regular"
-            android:maxWidth="220dp"
+            android:maxWidth="@dimen/dp_220"
             android:maxLines="3"
-            android:text="Tenge (₸) (KZT)"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_15"
             app:layout_constraintEnd_toEndOf="parent"
