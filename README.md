@@ -1,5 +1,8 @@
 # Geographic-Atlas
 
+## Demo video of app "Geographical Atlas"
+![screens/atlas_app.gif](https://github.com/seoleo96/Geographic-Atlas/blob/master/screens/atlas_app.gif)
+
 ## Architecture
 
 The architecture of the application is based, apply and strictly complies with each of the following 5 points:
@@ -21,6 +24,7 @@ Min API level is set to 21, so the presented approach is suitable for over 94% o
 -    [Coroutines Flow](https://kotlinlang.org/docs/reference/coroutines-overview.html)  - cold asynchronous data stream that sequentially emits values and completes normally or with an exception
 -   [Koin](https://insert-koin.io/)  - dependency injector for replacement all Factory classes.
 -   [Retrofit](https://square.github.io/retrofit/)  - type-safe HTTP client.
+-   [Shimmer](https://facebook.github.io/shimmer-android/)  - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app. It is useful as an unobtrusive loading indicator that was originally developed for Facebook Home.
 
 ## Authors
 
