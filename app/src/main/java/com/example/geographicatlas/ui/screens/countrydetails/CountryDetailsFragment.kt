@@ -76,6 +76,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
                         getString(R.string.smth_went_wrong_error)
                     }
                 }
+                binding.scrollView.isVisible = false
                 showToast(message, requireContext())
                 viewModel.resetErrorState()
             }
