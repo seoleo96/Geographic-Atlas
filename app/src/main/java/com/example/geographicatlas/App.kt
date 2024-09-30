@@ -38,7 +38,6 @@ class App : Application() {
     // вот мастер ветка посл релиз как будто
     // первое изменение
     // изменения в develop 1
-    // изменения в develop 2
 
     override fun onCreate() {
         super.onCreate()
