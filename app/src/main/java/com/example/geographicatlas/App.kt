@@ -37,7 +37,6 @@ class App : Application() {
 
     // вот мастер ветка посл релиз как будто
     // первое изменение
-    // изменения в develop 1
 
     override fun onCreate() {
         super.onCreate()
