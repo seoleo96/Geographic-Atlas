@@ -35,9 +35,7 @@ import org.koin.dsl.module
 
 class App : Application() {
 
-    // изменения в develop 1
-    // изменения в develop 2
-    // изменения в develop 3
+    // первое изменение
 
     override fun onCreate() {
         super.onCreate()
