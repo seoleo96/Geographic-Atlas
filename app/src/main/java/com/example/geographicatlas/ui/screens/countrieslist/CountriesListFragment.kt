@@ -8,18 +8,14 @@ import androidx.lifecycle.lifecycleScope
 import com.example.geographicatlas.R
 import com.example.geographicatlas.data.cloud.RetrofitInstance
 import com.example.geographicatlas.databinding.FragmentCountriesListBinding
-import com.example.geographicatlas.ui.adapter.BaseAdapter
 import com.example.geographicatlas.ui.base.viewBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountriesListFragment : Fragment(R.layout.fragment_countries_list) {
 
     private val binding by viewBinding(FragmentCountriesListBinding::bind)
-    private val adapter by lazy(LazyThreadSafetyMode.NONE) { BaseAdapter() }
-    private val viewModel: CountriesListViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

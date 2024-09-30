@@ -33,12 +33,6 @@ class CountriesListViewModel(
         launchOperations()
     }
 
-    fun countries(): StateFlow<List<DelegateItem>> = countries
-
-    fun loadingState(): StateFlow<Boolean> = loadingState
-
-    fun errorState(): StateFlow<Throwable?> = errorState
-
     private fun launchOperations() {
         viewModelScope.launch(ioDispatcher) {
             fetchCountries()
@@ -64,15 +58,5 @@ class CountriesListViewModel(
             }
             isFetchedCountries = true
         }
-    }
-
-    fun updateCountry(country: CountriesListAdapterItem) {
-        viewModelScope.launch(ioDispatcher) {
-            updateCountryUseCase(mapper.mapCountryToDomain(country))
-        }
-    }
-
-    fun resetErrorState() {
-        errorState.value = null
     }
 }
