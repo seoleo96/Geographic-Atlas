@@ -38,6 +38,7 @@ class App : Application() {
     // первое изменение
     // изменения в develop 1
     // изменения в develop 2
+    // изменения в develop 3
 
     override fun onCreate() {
         super.onCreate()
