@@ -65,4 +65,5 @@ dependencies {
 
     //Gson
     implementation "com.squareup.retrofit2:converter-gson:$gson"
+    implementation "com.squareup.retrofit2:converter-scalars:$scalars"
 }
