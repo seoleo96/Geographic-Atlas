@@ -113,7 +113,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
     private suspend fun observeLoadingState() {
         viewModel.loadingState().collect { isLoading ->
             if (isLoading) {
-                delay(400)//на первом фрагменте при анимации показывается шиммер, не смог решить без костылей
+                delay(400)//на первом фрагменте при анимации показывается шиммер, не смог решить костылей
                 binding.detailsWrapper.isVisible = false
                 binding.shimmerView.apply {
                     shimmerViewContainer.startShimmer()
