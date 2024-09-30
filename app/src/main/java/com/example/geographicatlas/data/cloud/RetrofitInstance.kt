@@ -1,6 +1,5 @@
 package com.example.geographicatlas.data.cloud
 
-import android.util.Log
 import com.example.geographicatlas.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,7 +31,6 @@ class RetrofitInstance {
         .build()
 
     fun service(): GeographicalAtlasService {
-        Log.d("TAG", "service: My Release for git revert merge")
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
