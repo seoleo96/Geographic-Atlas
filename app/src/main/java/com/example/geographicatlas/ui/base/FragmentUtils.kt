@@ -12,7 +12,11 @@ import com.example.geographicatlas.ui.adapter.countrieslist.CountriesListAdapter
 
 object FragmentUtils {
 
-    fun loadImage(url: String?, view: ImageView) = Glide.with(view.context).load(url).into(view)
+    fun loadImage(url: String?, view: ImageView) {
+        Glide.with(view.context)
+            .load(url)
+            .into(view)
+    }
 
     fun List<CountriesListAdapterItem>.toWithContinents(): List<DelegateItem> {
         val delegateItemList = mutableListOf<DelegateItem>()
@@ -35,13 +39,7 @@ object FragmentUtils {
     }
 
     fun showToast(msg: String, context: Context) {
-        Toast
-            .makeText(
-                context,
-                msg,
-                Toast.LENGTH_SHORT
-            )
-            .show()
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
 }
