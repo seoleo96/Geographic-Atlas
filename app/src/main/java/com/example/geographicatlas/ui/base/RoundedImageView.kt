@@ -24,16 +24,7 @@ class RoundedImageView @JvmOverloads constructor(
         context.withStyledAttributes(attrs, R.styleable.RoundedImageView) {
             cornerRadius = getDimension(R.styleable.RoundedImageView_cornerRadius, 0F)
         }
-        this.corners = floatArrayOf(
-            cornerRadius,
-            cornerRadius,
-            cornerRadius,
-            cornerRadius,
-            cornerRadius,
-            cornerRadius,
-            cornerRadius,
-            cornerRadius
-        )
+        this.corners = floatArrayOf(cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius)
     }
 
     override fun onDraw(canvas: Canvas) {
