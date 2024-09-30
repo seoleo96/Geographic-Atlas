@@ -35,7 +35,7 @@ import org.koin.dsl.module
 
 class App : Application() {
 
-    // изменения в develop
+    // вот мастер ветка посл релиз как будто
 
     override fun onCreate() {
         super.onCreate()
