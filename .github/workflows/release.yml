@@ -21,8 +21,6 @@ jobs:
         distribution: 'temurin'
         cache: 'gradle'
 
-    #- name: Build release APK
-     # run: ./gradlew assembleRelease
     - name: Generate key.properties
       run: |
           cat <<EOF > key.properties
@@ -33,8 +31,8 @@ jobs:
           EOF
     
 
-    - name: Decode keystore and create jks
-      run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > keystore.jks
+#    - name: Decode keystore and create jks
+#      run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > keystore.jks
 
     - name: Build release APK
       run: ./gradlew assembleRelease
