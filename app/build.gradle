@@ -6,12 +6,6 @@ plugins {
     id 'kotlinx-serialization'
 }
 
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
-
 android {
     namespace 'com.example.geographicatlas'
     compileSdk 33
@@ -25,15 +19,22 @@ android {
     }
     signingConfigs {
         release {
-//            keyAlias keystoreProperties['keyAlias']
-//            keyPassword keystoreProperties['keyPassword']
-//            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-//            storePassword keystoreProperties['storePassword']
+            def keyProperties = new Properties()
+            def keyPropertiesFile = rootProject.file("key.properties")
 
-            storeFile file(System.getenv("ANDROID_KEYSTORE") ?: keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : "app\\strong_intern.jks") // Подстраховка, если переменная не задана
-            storePassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
-            keyAlias System.getenv("KEY_ALIAS") ?: keystoreProperties['keyAlias']
-            keyPassword System.getenv("ALIAS_PASSWORD") ?: keystoreProperties['keyPassword']
+            if (keyPropertiesFile.exists()) {
+                keyProperties.load(new FileInputStream(keyPropertiesFile))
+                storeFile file(keyProperties['storeFile'])
+                storePassword keyProperties['storePassword']
+                keyAlias keyProperties['keyAlias']
+                keyPassword keyProperties['keyPassword']
+            } else {
+                // Используем переменные окружения
+                storeFile file(System.getenv("ANDROID_KEYSTORE") ?: keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : "app\\strong_intern.jks") // Подстраховка, если переменная не задана
+                storePassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
+                keyAlias System.getenv("KEY_ALIAS") ?: keystoreProperties['keyAlias']
+                keyPassword System.getenv("ALIAS_PASSWORD") ?: keystoreProperties['keyPassword']
+            }
         }
     }
 
