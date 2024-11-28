@@ -24,8 +24,7 @@ jobs:
     - name: Restore keystore
       run: |
         echo "$KEYSTORE_BASE64" | base64 --decode > app/strong_intern.jks
-        env:
-            KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE }}
+        env: KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE }}
 
 #    - name: Generate key.properties
 #      run: |
