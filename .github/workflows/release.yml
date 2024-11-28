@@ -25,7 +25,7 @@ jobs:
      # run: ./gradlew assembleRelease
     - name: Generate key.properties
       run: |
-          cat <<EOF > keys.properties
+          cat <<EOF > key.properties
           storePassword:${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword:${{ secrets.ALIAS_PASSWORD }}
           keyAlias:${{ secrets.KEY_ALIAS }}
