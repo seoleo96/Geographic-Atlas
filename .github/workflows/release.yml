@@ -21,8 +21,8 @@ jobs:
         distribution: 'temurin'
         cache: 'gradle'
 
-    - name: Build release APK
-      run: ./gradlew assembleRelease
+    #- name: Build release APK
+     # run: ./gradlew assembleRelease
     - name: Decode keystore
       run: |
         echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > app/strong_intern.jks
