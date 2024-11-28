@@ -30,10 +30,10 @@ android {
                 keyPassword keyProperties['keyPassword']
             } else {
                 // Используем переменные окружения
-                storeFile file(System.getenv("ANDROID_KEYSTORE") ?: keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : "app\\strong_intern.jks") // Подстраховка, если переменная не задана
-                storePassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
-                keyAlias System.getenv("KEY_ALIAS") ?: keystoreProperties['keyAlias']
-                keyPassword System.getenv("ALIAS_PASSWORD") ?: keystoreProperties['keyPassword']
+                storeFile file(System.getenv("ANDROID_KEYSTORE"))
+                storePassword System.getenv("KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("ALIAS_PASSWORD")
             }
         }
     }
