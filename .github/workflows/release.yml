@@ -39,18 +39,20 @@ jobs:
     - name: Build release APK
       run: ./gradlew assembleRelease
 
-    - name: Clean up sensitive files
-      run: rm -f key.properties
+
 
 
 #    - name: Build release APK
 #      run: ./gradlew assembleRelease
 #
-#    - name: Sign Release
-#      uses: r0adkll/sign-android-release@v1
-#      with:
-#        releaseDirectory: app/build/outputs/apk/release/app-release.apk
-#        signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
-#        keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
-#        alias: ${{ secrets.KEY_ALIAS }}
-#        keyPassword: ${{ secrets.ALIAS_PASSWORD }}
+    - name: Sign Release
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: app/build/outputs/apk/release/app-release.apk
+        signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+        keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+        alias: ${{ secrets.KEY_ALIAS }}
+        keyPassword: ${{ secrets.ALIAS_PASSWORD }}
+
+    - name: Clean up sensitive files
+      run: rm -f key.properties
