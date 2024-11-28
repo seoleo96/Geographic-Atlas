@@ -1,6 +1,5 @@
 package com.example.geographicatlas.data.cloud
 
-import com.example.geographicatlas.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,7 +19,7 @@ class RetrofitInstance {
 
     private val client: OkHttpClient = OkHttpClient.Builder()
         .apply {
-            if (BuildConfig.DEBUG) {
+            if (false) {
                 addInterceptor(interceptor)
             }
         }
