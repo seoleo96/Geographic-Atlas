@@ -34,8 +34,8 @@ class AtlasRepositoryImpl(
         }
     }
 
-    override suspend fun fetchCountryDetails(ccca2: String): CountryDetailsResultDomain {
-        return when (val result = cloudDataSource.fetchCountryDetails(ccca2)) {
+    override suspend fun fetchCountryDetails(cca2: String): CountryDetailsResultDomain {
+        return when (val result = cloudDataSource.fetchCountryDetails(cca2)) {
             is CountriesResultData.Success -> {
                 val countriesDetails = mapper.mapResponseToDomain(result.countries)
                 if (countriesDetails.isNotEmpty()) {
