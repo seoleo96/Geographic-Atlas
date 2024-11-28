@@ -21,27 +21,33 @@ jobs:
         distribution: 'temurin'
         cache: 'gradle'
 
-    - name: Generate key.properties
+    - name: Restore keystore
       run: |
-          cat <<EOF > key.properties
-          storePassword:${{ secrets.KEYSTORE_PASSWORD }}
-          keyPassword:${{ secrets.ALIAS_PASSWORD }}
-          keyAlias:${{ secrets.KEY_ALIAS }}
-          storeFile:${{ secrets.ANDROID_KEYSTORE }}
-          EOF
+        echo "$KEYSTORE_BASE64" | base64 --decode > app/strong_intern.jks
+        env:
+            KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE }}
+
+#    - name: Generate key.properties
+#      run: |
+#          cat <<EOF > key.properties
+#          storePassword:${{ secrets.KEYSTORE_PASSWORD }}
+#          keyPassword:${{ secrets.ALIAS_PASSWORD }}
+#          keyAlias:${{ secrets.KEY_ALIAS }}
+#          storeFile:${{ secrets.ANDROID_KEYSTORE }}
+#          EOF
     
 
 #    - name: Decode keystore and create jks
 #      run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > keystore.jks
 
-    - name: Build release APK
-      run: ./gradlew assembleRelease
-
-    - name: Upload APK artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: release-apk
-        path: app/build/outputs/apk/release/app-release.apk
-
-    - name: Clean up sensitive files
-      run: rm -f key.properties
+#    - name: Build release APK
+#      run: ./gradlew assembleRelease
+#
+#    - name: Upload APK artifact
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: release-apk
+#        path: app/build/outputs/apk/release/app-release.apk
+#
+#    - name: Clean up sensitive files
+#      run: rm -f key.properties
