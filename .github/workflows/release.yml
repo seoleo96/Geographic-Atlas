@@ -40,6 +40,9 @@ jobs:
 #        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 #        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 #      run: ./gradlew assembleRelease
+    - name: Build release APK
+      run: ./gradlew assembleRelease
+
     - name: Sign Release
       uses: r0adkll/sign-android-release@v1
       with:
