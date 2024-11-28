@@ -40,11 +40,14 @@ jobs:
 #        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 #        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 #      run: ./gradlew assembleRelease
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
+    - name: Sign Release
+      uses: r0adkll/sign-android-release@v1
       with:
-        name: release-apk
-        path: app/build/outputs/apk/release/app-release.apk
+        releaseDirectory: app/build/outputs/apk/release/app-release.apk
+        signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+        keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+        alias: ${{ secrets.KEY_ALIAS }}
+        keyPassword: ${{ secrets.ALIAS_PASSWORD }}
 
 
 #    - name: Build with Gradle
