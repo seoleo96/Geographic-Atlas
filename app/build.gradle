@@ -8,10 +8,23 @@ plugins {
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
+println(keystorePropertiesFile.exists())
+//println(file(keystoreProperties['storeFile']))
+//println(keystoreProperties['keyAlias'])
+//println(file(keystoreProperties['storeFile'])?.exists())
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}else {
+    throw new FileNotFoundException("key.properties file not found in project root.")
 }
-
+println "Keystore Path: ${keystoreProperties['storeFile']}"
+if (!keystoreProperties.containsKey('storeFile') || keystoreProperties['storeFile'] == null) {
+    throw new IllegalStateException("storeFile property is missing or null in key.properties.")
+}
+println(file(keystoreProperties['storeFile']) == null)
+if (file(keystoreProperties['storeFile']) == null) {
+    throw new FileNotFoundException("Keystore file not found at: ${keystoreProperties['storeFile']}")
+}
 android {
     namespace 'com.example.geographicatlas'
     compileSdk 33
