@@ -30,7 +30,7 @@ jobs:
     - name: Generate key.properties
       run: |
         {
-          echo "storeFile=${{ secrets.ANDROID_KEYSTORE }} | base64 -d";
+          echo "storeFile=app/strong_intern.jks";
           echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}";
           echo "keyAlias=${{ secrets.KEY_ALIAS }}";
           echo "keyPassword=${{ secrets.ALIAS_PASSWORD }}";
@@ -39,14 +39,11 @@ jobs:
     - name: Build release APK
       run: ./gradlew assembleRelease
 
-
-
-
-#    - name: Build release APK
-#      run: ./gradlew assembleRelease
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-apk
+        path: app/build/outputs/apk/release/app-release.apk
 #
-    - name: Clean up sensitive files
-      run: rm -f key.properties
-
     - name: Clean up sensitive files
       run: rm -f key.properties
