@@ -6,6 +6,10 @@ plugins {
     id 'kotlinx-serialization'
 }
 
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     namespace 'com.example.geographicatlas'
     compileSdk 33
@@ -19,22 +23,26 @@ android {
     }
     signingConfigs {
         release {
-            def keyProperties = new Properties()
-            def keyPropertiesFile = rootProject.file("key.properties")
-
-            if (keyPropertiesFile.exists()) {
-                keyProperties.load(new FileInputStream(keyPropertiesFile))
-                storeFile file(keyProperties['storeFile'])
-                storePassword keyProperties['storePassword']
-                keyAlias keyProperties['keyAlias']
-                keyPassword keyProperties['keyPassword']
-            } else {
-                // Используем переменные окружения
-                storeFile file(System.getenv("ANDROID_KEYSTORE"))
-                storePassword System.getenv("KEYSTORE_PASSWORD")
-                keyAlias System.getenv("KEY_ALIAS")
-                keyPassword System.getenv("ALIAS_PASSWORD")
-            }
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+//            def keyProperties = new Properties()
+//            def keyPropertiesFile = rootProject.file("key.properties")
+//
+//            if (keyPropertiesFile.exists()) {
+//                keyProperties.load(new FileInputStream(keyPropertiesFile))
+//                storeFile file(keyProperties['storeFile'])
+//                storePassword keyProperties['storePassword']
+//                keyAlias keyProperties['keyAlias']
+//                keyPassword keyProperties['keyPassword']
+//            } else {
+//                // Используем переменные окружения
+//                storeFile file(System.getenv("ANDROID_KEYSTORE"))
+//                storePassword System.getenv("KEYSTORE_PASSWORD")
+//                keyAlias System.getenv("KEY_ALIAS")
+//                keyPassword System.getenv("ALIAS_PASSWORD")
+//            }
         }
     }
 
